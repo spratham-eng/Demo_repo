@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "f1a92ebbbc81dc32d66c84b355ceebcbd6fc0db187739b42e03f4d18dc1d8b11"
+build_start_time: [1668334583, 817517995]
+build_end_time: [1668334583, 848483085]
+inputs:
+  "/Users/ec2-user/Desktop/ToDo_SP/ToDo_SP/AppDelegate.swift": !dirty [1668330396, 849468469]
+  "/Users/ec2-user/Desktop/ToDo_SP/ToDo_SP/SceneDelegate.swift": !dirty [1668330396, 855330467]
+  "/Users/ec2-user/Desktop/ToDo_SP/ToDo_SP/ViewController.swift": !dirty [1668330396, 857766628]

@@ -1,0 +1,66 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+  
+  desc "Releases our app to the app store"
+  lane :release_app do
+	increment_build_number(xcodeproj: "ToDo_SP.xcodeproj") 
+	export_app
+	upload_app
+  end
+
+
+  desc "To create our app"
+  lane :export_app do
+	unlock_keychain(
+   	 path: "/Users/ec2-user/Library/Keychains/login.keychain-db",
+    	 password: "ec2-user"
+ 	)
+
+	gym(
+		project: "ToDo_SP.xcodeproj",
+		scheme: "ToDo_SP",
+		clean: true,
+		#export_xcargs: "-allowProvisioningUpdates",
+		output_name: "ReleaseAppSP.ipa",
+		export_method: "app-store",		
+		export_options: {
+      			provisioningProfiles: { 
+        			"com.puresoftware.ToDo-DemoSP" => "com.puresoftware.ToDo-DemoSP AppStore 1668577964"
+     			}	
+    		}
+		#output_name: "ReleaseAppSP.ipa"		
+	)
+  end
+
+  desc "To deliver our app"
+  lane :upload_app do
+  	deliver(
+		ipa: "ReleaseAppSP.ipa",
+		skip_screenshots: true,
+		skip_metadata: true,
+		skip_app_version_update: true,
+		force: true	
+	)
+  end
+end
+
