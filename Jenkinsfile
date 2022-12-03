@@ -5,7 +5,7 @@ pipeline {
         stage('Checking git logs') {
             steps {
                 echo 'Hello World git log'
-                sh 'git log'
+                sh 'test_file.sh'
             }
         }
     }
