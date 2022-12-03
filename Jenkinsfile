@@ -1,5 +1,5 @@
 pipeline {
-    #agent { label 'ubuntu'}
+    
     agent any
     stages {
         stage('Checking git logs') {
