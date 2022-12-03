@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(
             name: 'repo_link',
-            defaultValue: '',
+            defaultValue: 'https://SaurabhPratham@bitbucket.org/saurabhpratham/cicd_ps_app.git',
             description: 'Enter the URL of git repo'
         )
         
