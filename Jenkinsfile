@@ -12,6 +12,10 @@ pipeline {
                 """
             }
         }
-        archiveArtifacts artifacts: 'git_report.csv', followSymlinks: false
+        post {
+        always {
+            archiveArtifacts artifacts: 'git_report.csv', onlyIfSuccessful: true
+        }
+    }
     }
 }
