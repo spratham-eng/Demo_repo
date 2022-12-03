@@ -5,7 +5,7 @@ pipeline {
             name: 'repo_link',
             defaultValue: '',
             description: 'Enter the URL of git repo'
-        ),
+        )
         
         string(
             name: 'n',
