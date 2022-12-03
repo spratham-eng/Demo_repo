@@ -6,8 +6,9 @@ pipeline {
                 sh """ rm -rf myrepo || echo
                     git clone $git_url myrepo
                  cd myrepo
-                 pwd
-                 git log --format='%H,%ae,%an,%s' --since="$n days ago"
+                 echo "Commit ID, Author Email, Author Name, Commit Message" > git_report.csv
+                 echo "" >> git_report.csv
+                 git log --format='%H,%ae,%an,%s' --since="$n days ago" >> git_report.csv
                 """
             }
         }
