@@ -1,15 +1,18 @@
 pipeline {
     agent { label 'ubuntu'}
-    properties(
-    [
-        parameters(
-       [
-           string('repo_link'), 
-        string(description: 'days', name: 'n')
-       ]
+    parameters {
+        string(
+            name: 'repo_link',
+            defaultValue: '',
+            description: 'Enter the URL of git repo'
+        ),
+        
+        string(
+            name: 'n',
+            defaultValue: '20',
+            description: 'Enter the number of days'
         )
-    ]
-    )
+    }
     stages {
         stage('Checking git logs') {
             steps {
