@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Checking git logs') {
             steps {
-                sh """ git clone $git_url
-                 cd_path=$(echo ${git_url} | awk -F "\/" '{print $NF}' )
-                 cd $cd_path
+                sh """ rm -rf myrepo || echo
+                    git clone $git_url myrepo
+                 cd myrepo
                  pwd
                  git log --format='%H,%ae,%an,%s' --since="$n days ago"
                 """
