@@ -4,7 +4,7 @@ pipeline {
         stage('Checking git logs') {
             steps {
                 sh """ rm -rf myrepo || echo
-                    git clone $git_url myrepo
+                    git clone ${repo_link} myrepo
                  cd myrepo
                  echo "Commit ID, Author Email, Author Name, Commit Message" > git_report.csv
                  echo "" >> git_report.csv
