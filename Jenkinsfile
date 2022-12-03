@@ -3,9 +3,12 @@ pipeline {
     stages {
         stage('Checking git logs') {
             steps {
-                echo 'Hello World git log'
-                sh 'chmod +x test_file.sh'
-                sh './test_file.sh > log_file.txt'
+                sh """ git clone $git_url
+                 cd_path=$(echo $git_url | awk -F "\/" '{print $NF}' )
+                 cd $cd_path
+                 pwd
+                 git log --format='%H,%ae,%an,%s' --since="$n days ago"
+                """
             }
         }
     }
