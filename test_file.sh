@@ -1,4 +1,2 @@
 #!/bin/sh
-echo "GIT_AUTHOR_NAME -> ${GIT_AUTHOR_NAME}"
-echo "GIT_COMMITTER_EMAIL -> ${GIT_COMMITTER_EMAIL}"
 git log
