@@ -16,7 +16,7 @@ pipeline {
     }
          post {
         always {
-            archiveArtifacts artifacts: 'git_report.csv', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'myrepo/git_report.csv', onlyIfSuccessful: true
         }
     }
 }
