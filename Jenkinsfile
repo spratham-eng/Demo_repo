@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ubuntu'}
+    agent any
     parameters {
         string(
             name: 'repo_link',
